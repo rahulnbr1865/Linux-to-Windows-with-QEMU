@@ -32,11 +32,11 @@ fi
 sudo ln -s /usr/bin/genisoimage /usr/bin/mkisofs
 # Downloading resources
 sudo mkdir /mediabots /floppy /virtio
-link1_status=$(curl -Is http://163.172.181.86/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
-link2_status=$(curl -Is https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
-#sudo wget -P /mediabots https://archive.org/download/WS2012R2/WS2012R2.ISO # Windows Server 2012 R2 
+link1_status=$(curl -Is http://216.218.188.81/Win10_1803_English_x64.iso | grep HTTP | cut -f2 -d" ")
+link2_status=$(curl -Is https://onedrive.live.com/download?cid=45257EC457D7DC21&resid=45257EC457D7DC21%21110&authkey=AHtMuH5O9L12f_s | grep HTTP | cut -f2 -d" ")
+#sudo wget -P /mediabots https://onedrive.live.com/download?cid=45257EC457D7DC21&resid=45257EC457D7DC21%21110&authkey=AHtMuH5O9L12f_s # Windows Server 2012 R2 
 if [ $link1_status = "200" ] ; then 
-	sudo wget -P /mediabots https://onedrive.live.com/download?cid=45257EC457D7DC21&resid=45257EC457D7DC21%21110&authkey=AHtMuH5O9L12f_s
+	sudo wget -P /mediabots http://216.218.188.81/Win10_1803_English_x64.iso
 elif [ $link2_status = "200" -o $link2_status = "301" -o $link2_status = "302" ] ; then 
 	sudo wget -P /mediabots https://onedrive.live.com/download?cid=45257EC457D7DC21&resid=45257EC457D7DC21%21110&authkey=AHtMuH5O9L12f_s
 else
